@@ -9,12 +9,12 @@
 
 .map{
   background-color: red;
-  flex: 1;
+  flex: 0.5;
 }
 
 .start{
   background-color: green;
-  flex: 1;
+  flex: 0.5;
 
 }
 
