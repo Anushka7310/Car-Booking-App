@@ -1,11 +1,14 @@
 import React from 'react'
 import tw from 'tailwind-styled-components'
+import Link from 'next/link'
 
 const search = () => {
     return (
         <Wrapper>
             <ButtonContainer>
+                <Link href="/">
                 <BackButton src="https://img.icons8.com/ios-filled/50/000000/left.png"></BackButton>
+                </Link>
             </ButtonContainer>
             <InputContainer> 
             <FormToIcons>
@@ -45,7 +48,7 @@ bg-white px-4
 `
 
 const BackButton = tw.img`
-h-12
+h-12 cursor-pointer
 `
 const FormToIcons = tw.div`
 w-10 flex flex-col mr-2 items-center
@@ -82,6 +85,6 @@ const SavedPlaces = tw.div`
 flex items-center bg-white px-4  py-2
 `
 const ConfirmLocations = tw.div`
-flex bg-black px-5 py-4 text-white m-2 text-xl items-center justify-center 
+flex bg-black px-4 py-3 text-white mt-2 text-2xl items-center justify-center mx-4 cursor-pointer
 `
 
