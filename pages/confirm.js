@@ -12,7 +12,7 @@ const Confirm = () => {
 
         fetch('https://api.mapbox.com/geocoding/v5/mapbox.places/${pickup}.json?' +
          new URLSearchParams({
-             access_token: 'pk.eyJ1IjoiYW51c2hrYS0xMiIsImEiOiJja3c2Z3ppaDIyaWFjMm5udDN4eDJtcXg2In0.w1D57PJteFGbN862BpsASw'
+             access_token: 'pk.eyJ1IjoiYW51c2hrYS0xMiIsImEiOiJja3c2Z3ppaDIyaWFjMm5udDN4eDJtcXg2In0.w1D57PJteFGbN862BpsASw',
              limit: 1
 
          })
@@ -31,7 +31,7 @@ const Confirm = () => {
 
         fetch('https://api.mapbox.com/geocoding/v5/mapbox.places/${dropoff}.json?' +
          new URLSearchParams({
-             access_token: 'pk.eyJ1IjoiYW51c2hrYS0xMiIsImEiOiJja3c2Z3ppaDIyaWFjMm5udDN4eDJtcXg2In0.w1D57PJteFGbN862BpsASw'
+             access_token: 'pk.eyJ1IjoiYW51c2hrYS0xMiIsImEiOiJja3c2Z3ppaDIyaWFjMm5udDN4eDJtcXg2In0.w1D57PJteFGbN862BpsASw',
              limit: 1
 
          })
@@ -52,7 +52,10 @@ const Confirm = () => {
 
     return (
         <Wrapper>
-         <Map />
+         <Map
+         pickupCoordinates={pickupCoordinates}
+         dropoffCoordinates={dropoffCoordinates}
+         />
          <RideContainer>
           Ride Selector Confirm Button
          </RideContainer>
