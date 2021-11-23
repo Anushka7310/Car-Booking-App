@@ -22,8 +22,9 @@ export default function Home() {
           <Profile>
             <Name>Anushka Gupta</Name>
             <UserImage
-            src="https://lh3.googleusercontent.com/a-/AOh14GiD9MBH2IcIdXX8uw40dBSdCkjbAbabGqJPsXaE=s96-c" />
-          </Profile>
+            src="file:///home/anushka/Downloads/anushka.jpeg"/>
+            </Profile>
+
        </Header>
        <ActionButtons>
          <Link href="/search">
