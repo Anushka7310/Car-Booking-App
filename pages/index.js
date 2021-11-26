@@ -1,11 +1,32 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import tw from "tailwind-styled-components";
 import Map from "./components/Map";
 import Link from "next/link";
+import { auth } from "../firebase";
+import { onAuthStateChanged, singOut } from "firebase/auth";
+import { Router, useRouter } from "next/router"; 
 
 export default function Home() {
+
+  const [user, setUser] = useState(null)
+  const router = useRouter()
+
+  useEffect(() =>{
+    return onAuthStateChanged(auth, user =>{
+      if (user) {
+        setUser({
+          name: user.displayName,
+          photoUrl: user.photoURL,
+        })
+      }else {
+        setUser(null)
+        router.push('/login')
+    }
+  })
+  
+}, [])
   return (
     <Wrapper>
       <Map />
