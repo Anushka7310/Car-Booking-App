@@ -1,18 +1,23 @@
-import React, { useEffect, useState }from "react";
+import React, { useEffect, useState } from "react";
 import tw from "tailwind-styled-components";
 import { carList } from "../data/carList";
 
-const RideSelector = ({pickupCoordinates, dropoffCoordinates}) => {
-    const [rideDuration, setRideDuration] = useState(0)
+const RideSelector = ({ pickupCoordinates, dropoffCoordinates }) => {
+  const [rideDuration, setRideDuration] = useState(0);
 
-    useEffect(() =>{
-    fetch(`https://api.mapbox.com/directions/v5/mapbox/driving/${pickupCoordinates[0]},${dropoffCoordinates[1]};${dropoffCoordinates[0]},${pickupCoordinates[1]}?access_token=pk.eyJIjoiZHJha29zaSIsImEiOiJja2x1YW9jdWswOHcyMnVvZXQ1aTVqcHBnInO.GOSLu_zwAEU9_q8FIkHeaQ`)
-
-        .then(res => res.json())
-        .then(data => {
-            setRideDuration(data.routes[0].duration / 100)
-        })
-    }, [pickupCoordinates, dropoffCoordinates])
+  useEffect(() => {
+    rideDuration = fetch(
+      `https://api.mapbox.com/directions/v5/mapbox/driving/
+            ${pickupCoordinates[0]},${pickupCoordinates[1]};${dropoffCoordinates[0]},${dropoffCoordinates[1]}
+            ?access_token=pk.eyJ1IjoiYW51c2hrYS0xMiIsImEiOiJja3c2Z3ppaDIyaWFjMm5udDN4eDJtcXg2In0.w1D57PJteFGbN862BpsASw`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.code !== "NoRoute") {
+          setRideDuration(data.routes[0]?.duration / 100);
+        }
+      });
+  }, [pickupCoordinates, dropoffCoordinates]);
   return (
     <Wrapper>
       <Title>Choose a ride, or swipe up for more</Title>

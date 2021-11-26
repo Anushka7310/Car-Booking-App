@@ -3,7 +3,7 @@ import tw from "tailwind-styled-components";
 import Map from "./components/Map";
 import { useRouter } from "next/router";
 import RideSelector from "./components/RideSelector";
-import link from "next/link";
+import Link from "next/link";
 
 const Confirm = () => {
   const router = useRouter();
@@ -53,9 +53,9 @@ const Confirm = () => {
   return (
     <Wrapper>
       <ButtonContainer>
-        <link href='/search'>
+        <Link href='/search'>
           <BackButton src='https://img.icons8.com/ios-filled/50/000000/left.png' />
-          </link>
+          </Link>
       </ButtonContainer>
       <Map
         pickupCoordinates={pickupCoordinates}
